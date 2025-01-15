@@ -78,6 +78,10 @@
 
         <table border="5">
             <tr>
+<!--                <th>-->
+<!--                    Id-->
+<!--                </th>-->
+
                 <th>
                     Task Name
                 </th>
@@ -89,15 +93,34 @@
 
             {% for task in TaskList: %}
                     <tr>
-                        <td>
-                            <!--task with 0th index column-->
-                            {{ task[0] }}
-                        </td>
+                        <form method="post" action="/update">
 
-                        <td>
-                            <!--task with 1st index column-->
-                           {{ task[1] }}
-                        </td>
+<!--                            <td>-->
+<!--                                {{ task[0] }}-->
+<!--                            </td>-->
+
+                            <td>
+                                <input type="hidden" name="id" value="{{ task[0] }}" />
+                                <input type="text" name="updateTask" value="{{ task[1] }}" />
+
+                                <!--task with 0th index column-->
+                                <!--{{ task[1] }}-->
+                            </td>
+
+                            <td>
+                                <!--task with 1st index column-->
+                               {{ task[2] }}
+                            </td>
+
+                            <td>
+                                <input type="submit" name="saveOrDelete" value="save">
+                            </td>
+
+                            <td>
+                                <input type="submit" name="saveOrDelete" value="Delete">
+                            </td>
+
+                        </form>
 
                     </tr>
             {% endfor %}

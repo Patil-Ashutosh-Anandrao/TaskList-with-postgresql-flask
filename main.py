@@ -9,6 +9,8 @@ from flask import url_for
 # Import the getTaskList function from the db.py file. This function retrieves the task list from the database.
 from db import getTaskList
 from db import addTask
+from db import updateTask
+from db import deleteTask
 
 app = Flask(__name__)
 
@@ -31,6 +33,20 @@ def add():
     addTask(taskName, dueDate)
     return redirect(url_for('home'))
 
+
+@app.route("/update",methods=['POST'])
+def update():
+    updatedtaskname = request.form['updateTask']
+    id= request.form['id']
+    button = request.form['saveOrDelete']
+
+    if button=="save":
+        updateTask(updatedtaskname, id)
+
+    elif button=="Delete":
+        deleteTask(id)
+
+    return redirect(url_for('home'))
 
 
 

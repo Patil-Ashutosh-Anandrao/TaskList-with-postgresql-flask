@@ -28,7 +28,7 @@ def getTaskList():
     cur = conn.cursor()
 
 # Execute a query to select all the records from the task_list table.
-    cur.execute('SELECT task_name, is_done FROM public."TaskList"')
+    cur.execute('SELECT id, task_name, is_done FROM public."TaskList"')
 
     #Fetch all the records from the task_list table and store them in a variable.
     tasklist = cur.fetchall()
@@ -50,3 +50,18 @@ def addTask(name,date):
     conn.close
 
 
+def updateTask(name,id):
+    conn=psycopg2.connect(dbname=db_name, user=db_user, password=db_pw, host=db_host, port=db_port)
+    cur=conn.cursor()
+    cur.execute('UPDATE public."TaskList" SET task_name=\'%s\' WHERE id=%s;' % (name, id))
+    conn.commit()
+    cur.close
+    conn.close
+
+def deleteTask(id):
+    conn=psycopg2.connect(dbname=db_name, user=db_user, password=db_pw, host=db_host, port=db_port)
+    cur=conn.cursor()
+    cur.execute('DELETE FROM public."TaskList" WHERE id=%s;' % (id))
+    conn.commit()
+    cur.close
+    conn.close
