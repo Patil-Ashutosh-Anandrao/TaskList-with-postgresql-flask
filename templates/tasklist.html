@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
 <!--<head>-->
 <!--    <meta charset="UTF-8">-->
 <!--    <title>postgresql with flask</title>-->
@@ -58,30 +58,44 @@
 <!--    </tr>-->
 <!--</table>-->
 
-<table border="5">
-    <tr>
-        <th>
-            Task Name
-        </th>
 
-        <th>
-            Is Done
-        </th>
-    </tr>
 
-    {% for task in TaskList: %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>postgresql with flask</title>
+    </head>
+
+    <body>
+
+        <table border="5">
             <tr>
-                <td>
-                    <!--task with 0th index column-->
-                    {{ task[0] }}
-                </td>
+                <th>
+                    Task Name
+                </th>
 
-                <td>
-                    <!--task with 1st index column-->
-                   {{ task[1] }}
-                </td>
-
+                <th>
+                    Is Done
+                </th>
             </tr>
-    {% end for %}
-</table>
+
+            {% for task in TaskList: %}
+                    <tr>
+                        <td>
+                            <!--task with 0th index column-->
+                            {{ task[0] }}
+                        </td>
+
+                        <td>
+                            <!--task with 1st index column-->
+                           {{ task[1] }}
+                        </td>
+
+                    </tr>
+            {% end for %}
+        </table>
+
+    </body>
+
 </html>
