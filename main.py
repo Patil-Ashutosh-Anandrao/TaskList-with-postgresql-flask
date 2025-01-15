@@ -3,7 +3,7 @@ from flask import render_template
 
 app = Flask(__name__)
 
-tasklist = [["walk Dog", True], ["Wash Dishes", False], ["Sleep", True]]
+tasklist = [["walk Dog", True], ["Wash Dishes", False], ["Sleep", True], ["Study", True]]
 
 
 @app.route("/")
