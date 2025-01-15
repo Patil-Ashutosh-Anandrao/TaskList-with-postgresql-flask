@@ -65,7 +65,9 @@
     <head>
         <meta charset="UTF-8">
         <title>postgresql with flask</title>
-        Task List
+
+        <!-- Link to CSS file -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
 
     <body>
@@ -128,6 +130,8 @@
             {% endfor %}
         </table>
 
+        <!-- Link to JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     </body>
 
 </html>
