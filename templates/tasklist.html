@@ -69,18 +69,19 @@
     </head>
 
     <body>
-        <form method="post" action="{{ url_for('add') }}">
-            <input type="text" name="taskName">
-            <input type="text" name="dueDate">
+        <form method="post" action="{{ url_for('add') }}"> <!--url_for('add') is the name of the function in app.py  -->
+            <input type="text" name="taskName" placeholder="Enter Task">
+            <input type="text" name="dueDate" placeholder="Enter Due Date">
             <input type="submit" name="Add Task">
         </form>
         <hr>
 
+        <h1>Task List</h1>
         <table border="5">
             <tr>
-<!--                <th>-->
-<!--                    Id-->
-<!--                </th>-->
+                <!--<th>-->
+                    <!--Id-->
+                <!--</th>-->
 
                 <th>
                     Task Name
@@ -89,15 +90,19 @@
                 <th>
                     Is Done
                 </th>
+
+                <th>
+                    Perform Action
+                </th>
             </tr>
 
             {% for task in TaskList: %}
                     <tr>
                         <form method="post" action="/update">
 
-<!--                            <td>-->
-<!--                                {{ task[0] }}-->
-<!--                            </td>-->
+                            <!--<td>-->
+                                <!--{{ task[0] }}-->
+                            <!--</td>-->
 
                             <td>
                                 <input type="hidden" name="id" value="{{ task[0] }}" />
@@ -109,14 +114,11 @@
 
                             <td>
                                 <!--task with 1st index column-->
-                               {{ task[2] }}
+                                {{ task[2] }}
                             </td>
 
                             <td>
                                 <input type="submit" name="saveOrDelete" value="save">
-                            </td>
-
-                            <td>
                                 <input type="submit" name="saveOrDelete" value="Delete">
                             </td>
 
