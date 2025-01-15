@@ -65,9 +65,16 @@
     <head>
         <meta charset="UTF-8">
         <title>postgresql with flask</title>
+        Task List
     </head>
 
     <body>
+        <form method="post" action="{{ url_for('add') }}">
+            <input type="text" name="taskName">
+            <input type="text" name="dueDate">
+            <input type="submit" name="Add Task">
+        </form>
+        <hr>
 
         <table border="5">
             <tr>
@@ -93,7 +100,7 @@
                         </td>
 
                     </tr>
-            {% end for %}
+            {% endfor %}
         </table>
 
     </body>
